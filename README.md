@@ -5,7 +5,7 @@ A real-time AI-powered fitness coaching system that uses **Computer Vision, Huma
 ## Live Demo
 
 **Try the application here:**  
-[https://ai-realtime-gym-coach.streamlit.app/](https://ai-realtime-gym-coach.streamlit.app/)
+[Launch Real-Time AI Gym Trainer](https://real-time-ai-gym-trainer-njxvdgeappeqfzuaiw3yced.streamlit.app/)
 
 **GitHub Repository:**  
 [https://github.com/bibekn414/Real-Time-AI-Gym-Trainer](https://github.com/bibekn414/Real-Time-AI-Gym-Trainer)
