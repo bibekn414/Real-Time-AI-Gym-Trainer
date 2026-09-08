@@ -1,43 +1,5 @@
-import os
-import sys
-import subprocess
-import importlib.metadata
-
-# Streamlit/Linux fix:
-# MediaPipe installs the GUI OpenCV package, which requires libGL.so.1.
-# Remove it and keep the headless OpenCV build instead.
-try:
-    importlib.metadata.version("opencv-contrib-python")
-
-    subprocess.run(
-        [
-            sys.executable,
-            "-m",
-            "pip",
-            "uninstall",
-            "-y",
-            "opencv-contrib-python",
-        ],
-        check=False,
-    )
-
-    subprocess.run(
-        [
-            sys.executable,
-            "-m",
-            "pip",
-            "install",
-            "--force-reinstall",
-            "--no-deps",
-            "opencv-contrib-python-headless==4.10.0.84",
-        ],
-        check=True,
-    )
-
-except importlib.metadata.PackageNotFoundError:
-    pass
-
 import streamlit as st
+import os
 import time
 import pandas as pd
 
