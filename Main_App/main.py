@@ -12,10 +12,7 @@ from streamlit_webrtc import webrtc_streamer, WebRtcMode
 from services.vision.exercise_video_processor import VideoProcessorClass
 from services.tracking.metrics import sync_metrics_update
 from services.persistence.exercise_repository import get_users_exercises
-from groq import Groq
-from services.coaching.llm import LLMCoach
-from services.coaching.tts import TextToSpeech
-from services.coaching.voice_pipeline import VoicePipeline, autoplay_audio
+from services.coaching.voice_pipeline import autoplay_audio
 
 def main():
     st.set_page_config(
@@ -36,18 +33,7 @@ def main():
     initial_session_defaults()
 
     if "voice_pipeline" not in st.session_state:
-        try:
-            api_key = os.environ.get("GROQ_API_KEY", "")
-
-            if not api_key and hasattr(st, "secrets") and "GROQ_API_KEY" in st.secrets:
-                api_key = st.secrets["GROQ_API_KEY"]
-            
-            groq_client = Groq(api_key=api_key)
-            llm_coach = LLMCoach(groq_client)
-            tts = TextToSpeech()
-            st.session_state.voice_pipeline = VoicePipeline(llm_coach, tts)
-        except Exception as e:
-            st.session_state.voice_pipeline = None
+    st.session_state.voice_pipeline = None
 
     workout_started = st.session_state.get("workout_started", False)
     
