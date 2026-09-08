@@ -1,1 +1,1 @@
-# ai-gym-coach
+# Real-Time AI Gym Trainer
