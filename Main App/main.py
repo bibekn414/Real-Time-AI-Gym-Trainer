@@ -16,7 +16,6 @@ from services.coaching.llm import LLMCoach
 from services.coaching.tts import TextToSpeech
 from services.coaching.voice_pipeline import VoicePipeline, autoplay_audio
 
-  
 def main():
     st.set_page_config(
         page_icon="🏋️‍♀️",
